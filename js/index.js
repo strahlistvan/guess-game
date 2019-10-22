@@ -7,14 +7,13 @@ $(document).ready(function () {
 
     let rand = getrandomnumber(1,100);
 
-    let guesspanel = $('#guesspanel');
     let hintpanel = $('#hintpanel');
 
     let input = $('#gno');
     let guessbtn = $('#gbtn');
 
     let cbox = $('.switch input');
-    cbox.click();
+    cbox.prop("checked", true);
     let ischecked = true;
     let toohigh = false,toolow=false;
     let diffbox = $('input[name=radio]:radio');
@@ -39,7 +38,7 @@ $(document).ready(function () {
     let maxstr = '';
     diffbox.change(function () {
         let diff = $('input[name=radio]:checked').val();
-        // $('#resetbtn').click();
+
         switch (diff){
             case '0':
                 rand = getrandomnumber(1,10);
@@ -82,8 +81,6 @@ $(document).ready(function () {
     let count=0;
     (guessbtn).click(function () {
         let gval = input.val();
-  		/*console.log(count);
-  		console.log(nog);*/
 
         if(String(gval)!=''&&count<10&&end==false) {
         	$('.hbox').hide();
@@ -181,28 +178,9 @@ $(document).ready(function () {
    });
 
     $('#resetbtn').click(function () {
-      /* $('.gcontent').empty();
-       $('.hcontent').empty();
-       count=0;
-       nog=10;
-       end=false;
-        $('#guesses').text(count);
-        $('.hbox').show();
-        $('#diffchoose').show();
-
-        let diff = $('input[name=radio]:checked').val();
-        if(diff=='0'){
-            $('.hbox').hide();
-        }*/
         //Refresh Page rather than manual refresh due to some issues 
         location.reload();
-
-
     });
-
-
-
-
 
     $('#clw').click(function () {
         $('#resetbtn').click();
